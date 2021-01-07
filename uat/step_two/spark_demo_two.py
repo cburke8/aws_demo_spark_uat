@@ -17,6 +17,8 @@ silver_path = 's3://citi-bike-batch-data-test/silver/'
 gold_path   = 's3://citi-bike-batch-data-test/gold/'
 
 #isolating circular trips
+slvrDF = spark.read.format('parquet').load(silver_path)
+
 slvrDF.createOrReplaceTempView("silver")
 
 # Making DIM_STATION starts:
